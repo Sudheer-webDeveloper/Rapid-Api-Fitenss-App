@@ -1,0 +1,835 @@
+// Navbar.jsx
+@import "./index.scss";
+
+@mixin flexer($direction) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+body {
+  overflow-y: scroll;
+  overflow-x:hidden ;
+  scrollbar-width: none;
+}
+
+//FOR LOADER
+.loader {
+  width: 90vw;
+  margin: auto;
+  height: 50vh;
+  @include flexer(row);
+  video {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.loading {
+  width: 90vw;
+  margin: auto;
+  @include flexer(row);
+  height: 50vh;
+}
+
+// FOR LINKS
+.active {
+  text-decoration: none;
+  color: rgb(223, 82, 82); //
+  font-size: 1.2rem;
+  @include Bmobile {
+    font-size: 1rem;
+  }
+}
+.notActive {
+  text-decoration: none;
+  color: black;
+  font-size: 1rem;
+}
+
+nav {
+  width: 100vw;
+  padding: 10px 60px;
+  @include flexer(row);
+  justify-content: space-between;
+  margin-bottom: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.228); //
+  position: sticky;
+  top: 0;
+  background: rgba(0, 0, 0, 0.858);
+  z-index: 100;
+  @include Bmobile {
+    padding: 10px 20px;
+  }
+  .logo {
+    img {
+      width: 55px;
+      height: 50px;
+      object-fit: cover;
+      border: 2px solid rgb(0, 0, 0);
+      background: white;
+      padding: 5px;
+      border-radius: 50%;
+      @include Bmobile {
+        width: 40px;
+        object-fit: contain;
+      }
+    }
+  }
+  .nav-content {
+    @include flexer(row);
+    gap: 30px;
+
+    a {
+      text-decoration: none;
+      color:red;
+      font-size: 1.2rem;
+    }
+
+    a:visited {
+      color: #3db2ff; /* Changes color for visited links */
+    }
+
+    /* Current Link */
+   
+
+    a:focus,
+    a:hover {
+      color: #ff6600;
+      text-decoration: underline;
+    }
+    a:active{
+      color: red;
+    }
+  }
+}
+
+// Hero.jsx
+
+.hero {
+  @include flexer(row);
+  color: #070707;
+  justify-content: space-between;
+  width: 95vw;
+  flex-basis: 50%;
+  gap: 30px;
+  margin: auto;
+  background: rgb(16, 195, 223);
+  border-radius: 40px;
+  padding-left: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  @include Bmobile {
+    background: rgb(255, 255, 255);
+    border-radius: 0px;
+    padding-left: 0px;
+    padding-bottom: 10px;
+  }
+
+  .content {
+    @include flexer(column);
+    flex: 1;
+    gap: 30px;
+    align-items: flex-start;
+    @include Bmobile {
+      justify-content: center;
+      align-items: center;
+    }
+    @include Bmobile {
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      @include Smobile {
+        font-size: 2rem;
+      }
+    }
+    p {
+      font-size: 1.4rem;
+      @include Amobile {
+        font-size: 1rem;
+      }
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #070707; //
+      border: none;
+      outline: none;
+      color: white;
+      font-size: 1.4rem;
+      border-radius: 40px;
+      cursor: pointer;
+      @include Bmobile {
+        justify-content: center;
+        padding: 10px;
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  .image-container {
+    flex: 1;
+    @include Amobile {
+      display: none;
+    }
+    img {
+      width: 700px;
+      min-height: 650px;
+      object-fit: contain;
+      filter: brightness(110%);
+
+      // filter: drop-shadow(0 0 0.25rem rgb(35, 35, 35));
+    }
+  }
+}
+
+//Search.jsx
+
+.search {
+  width: 95vw;
+  background-image: linear-gradient(180deg, transparent, #000000dc),
+    url("../src/assets/images/training.png");
+  border-radius: 40px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 40px auto;
+  min-height: 350px;
+  background-position: top;
+  @include flexer(column);
+  gap: 70px;
+  margin: 100px auto;
+  justify-content: center;
+  @include Bmobile {
+    background-size: 150%;
+    padding: 40px 20px;
+  }
+  @include Smobile {
+    background-size: 180%;
+  }
+  .content {
+    h1 {
+      width: 80vw;
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      @include Bmobile {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .input {
+    width: 100%;
+    @include Bmobile {
+      margin: 0 20px;
+    }
+    @include flexer(row);
+    input {
+      padding: 15px;
+      border-radius: 10px 0px 0px 10px;
+      width: 70vw;
+      border: none;
+      outline: none;
+      border: 1px solid black; //
+      @include Bmobile {
+        padding: 10px;
+      }
+    }
+    button {
+      padding: 13px;
+      border-radius: 0px 10px 10px 0px;
+      width: 150px;
+      cursor: pointer;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      background: red; //
+      color: white;
+      border: none;
+      transition: all 0.1s;
+
+      @include Bmobile {
+        padding: 8px;
+      }
+    }
+    button:hover {
+      background: maroon;
+    }
+  }
+}
+
+// Category.jsx
+
+.main-card {
+  @include flexer(row);
+  justify-content: flex-start;
+  gap: 25px;
+  width: 90vw;
+  margin: 50px auto;
+  overflow: scroll;
+  scrollbar-width: none;
+  @include Bmobile {
+    gap: 50px;
+  }
+  .card {
+    @include flexer(column);
+    gap: 10px;
+    background: rgb(16, 195, 223);
+    color: rgb(0, 0, 0);
+    padding: 30px 30px;
+    border-radius: 20px;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    .image img {
+      width: 120px;
+      object-fit: cover;
+      cursor: pointer;
+      @include Bmobile {
+        width: 100px;
+        padding: 15px 15px;
+        border-radius: 20px;
+      }
+    }
+    .content h4 {
+      width: 300px;
+      text-align: center;
+      text-transform: capitalize;
+      letter-spacing: 1px;
+      font-size: 2rem;
+      @include Bmobile {
+        font-size: 1rem;
+        width: 200px;
+      }
+    }
+  }
+  .card:hover {
+    background: rgb(232, 104, 35);
+  }
+}
+
+// Exercise.jsx  & Exercise Card
+
+.main-exercise {
+  width: 100vw;
+  margin: auto;
+  margin-top: 100px;
+  background: #0f0f0f2a;
+  background: rgb(103, 102, 102);
+  background: #f9d371;
+  color: #0f0f0ffe;
+  margin-bottom: 20px;
+  padding: 40px;
+  @include Bmobile {
+    width: 98vw;
+  }
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 100px;
+    @include Fmobile {
+      font-size: 2.5rem;
+    }
+    @include Bmobile {
+      font-size: 1.7rem;
+      margin-left: 10px;
+    }
+  }
+  .all-exercises {
+    @include flexer(row);
+    flex-wrap: wrap;
+    gap: 50px;
+    @include AMmobile {
+      gap: 30px;
+    }
+    .all-card {
+      @include flexer(column);
+      width: 370px;
+      gap: 10px;
+      transition: all 0.2s;
+      cursor: pointer;
+      @include Amobile {
+        width: 350px;
+        flex-wrap: nowrap;
+      }
+      @include mobile {
+        width: 300px;
+        flex-wrap: nowrap;
+      }
+
+      .image {
+        position: relative;
+        height: 430px;
+        img {
+          width: 300px;
+          min-height: 430px;
+          max-height: 430px;
+          border-radius: 40px;
+          padding: 10px;
+          padding-top: 40px;
+          background: #00000058;
+
+          @include Fmobile {
+            width: 280px;
+            // max-height: 70%;
+          }
+        }
+
+        .exercise-content {
+          @include flexer(row);
+          justify-content: space-between;
+          text-transform: capitalize;
+          width: 100%;
+          gap: 20px;
+          position: absolute;
+          background: #ff6464;
+          background: #000000;
+          padding: 10px;
+          margin-bottom: 10px;
+          width: 90%;
+          border-radius: 40px;
+          left: 5%;
+          top: 13px;
+          @include Fmobile {
+            gap: 30px;
+          }
+          button {
+            border: none;
+            outline: none;
+            cursor: pointer;
+            color: white;
+            background: none;
+            background: rgb(255, 99, 2);
+            background: #3db2ff;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            min-width: 80px;
+            padding: 10px 5px;
+            border-radius: 40px;
+            text-transform: capitalize;
+            @include Fmobile {
+              min-width: 70px;
+              padding: 6px 5px;
+              font-size: 0.8rem;
+            }
+          }
+          button:nth-child(2) {
+            background: none;
+            background: #1f4172;
+          }
+        }
+      }
+
+      h3 {
+        text-transform: capitalize;
+        font-size: 1.2rem;
+        margin-left: 40px;
+        width: 300px;
+        text-align: left;
+        line-height: 25px;
+      }
+    }
+    .all-card:hover {
+      transform: scale(1.07);
+    }
+  }
+}
+
+.paginate-buttons {
+  @include flexer(row);
+  margin: 20px auto;
+  margin-bottom: 100px;
+  margin-top: 80px;
+
+  gap: 20px;
+  @include Amobile {
+    gap: 10px;
+    @include flexer(column);
+  }
+  button {
+    border-radius: 4px;
+    height: 40px;
+    font-size: 2rem;
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: #1f4172;
+  }
+  .more-buttons {
+    @include flexer(row);
+    justify-content: flex-start;
+    gap: 10px;
+    width: 500px;
+    overflow: scroll;
+    scrollbar-width: none;
+    @include Amobile {
+      width: 350px;
+    }
+    @include Smobile {
+      width: 280px;
+    }
+    button {
+      min-width: 40px;
+      color: white;
+      height: 40px;
+      font-size: 1rem;
+      padding: 5px;
+      background: none;
+      background: rgb(30, 29, 29);
+      outline: none;
+      cursor: pointer;
+      border-radius: 50%;
+      border: 1px solid #070707;
+
+      @include Amobile {
+        min-width: 30px;
+        height: 30px;
+        font-size: 0.7rem;
+        background: rgb(30, 29, 29);
+      }
+    }
+  }
+  .sample {
+    @include flexer(row);
+    width: 140px;
+    justify-content: flex-start;
+    gap: 10px;
+    overflow: scroll;
+    scrollbar-width: none;
+    button {
+      min-width: 40px;
+      color: white;
+      height: 40px;
+      font-size: 1rem;
+      padding: 5px;
+      background: none;
+      background: rgb(30, 29, 29);
+      outline: none;
+      cursor: pointer;
+      border-radius: 50%;
+      border: 1px solid #070707;
+
+      @include Amobile {
+        min-width: 30px;
+        height: 30px;
+        font-size: 0.7rem;
+        background: rgb(30, 29, 29);
+      }
+    }
+  }
+}
+
+.forButton {
+  background: rgb(247, 70, 70);
+  width: 200px;
+}
+
+// footer.jsx
+
+.footer {
+  @include flexer(column);
+  align-items: center;
+  padding-top: 30px;
+  background: rgb(254, 158, 158);
+  background: #2e99b0;
+  padding-bottom: 50px;
+  gap: 20px;
+
+  .image {
+    img {
+      width: 80px;
+      height: 80px;
+      filter: brightness(120%);
+    }
+  }
+  .content {
+    h3 {
+      font-size: 2rem;
+      color: white;
+      @include Bmobile {
+        font-size: 1.4rem;
+        text-align: center;
+      }
+    }
+  }
+  .logo {
+    @include flexer(row);
+    gap: 20px;
+    a {
+      text-decoration: none;
+      font-size: 2rem;
+      @include Bmobile {
+        font-size: 1.2rem;
+      }
+      .linkdin {
+        color: rgb(0, 191, 255);
+      }
+      .github {
+        color: black;
+      }
+      .resume {
+        color: rgb(255, 0, 0);
+      }
+    }
+  }
+}
+
+// Detail.jsx
+
+.single-card {
+  @include flexer(row);
+  width: 95vw;
+  margin: auto;
+  @include Amobile {
+    @include flexer(column);
+    flex-basis: 90vw;
+  }
+  .image {
+    flex: 1;
+    width: 45vw;
+    @include Amobile {
+      width: 70vw;
+    }
+    img {
+      width: 100%;
+
+      @include Smobile {
+        width: 70vw;
+        height: 450px;
+      }
+    }
+  }
+  .content {
+    flex: 1;
+    @include flexer(column);
+    align-items: flex-start;
+    width: 45vw;
+    gap: 30px;
+    padding: 40px;
+    @include Amobile {
+      width: 100vw;
+    }
+    @include Fmobile {
+      gap: 20px;
+    }
+    h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      text-transform: capitalize;
+      @include Bmobile {
+        font-size: 1.5rem;
+      }
+    }
+    p {
+      letter-spacing: 0.5px;
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 10px;
+      @include Bmobile {
+        font-size: 0.8rem;
+      }
+    }
+    .extraDetail {
+      @include flexer(column);
+      gap: 30px;
+      @include Fmobile {
+        gap: 20px;
+      }
+
+      .extra {
+        @include flexer(row);
+        width: 45vw;
+        justify-content: flex-start;
+        gap: 20px;
+        img {
+          width: 100px;
+          height: 100px;
+          background: rgba(244, 143, 96, 0.773);
+          background: #FFAEC0;
+
+          padding: 20px;
+          border-radius: 50%;
+          @include Bmobile {
+            width: 70px;
+            height: 70px;
+          }
+        }
+        h4 {
+          font-size: 1.2rem;
+          text-transform: capitalize;
+          @include Bmobile {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// videos.jsx
+
+.video {
+  width: 95vw;
+  margin: 50px auto;
+  @include flexer(column);
+  gap: 30px;
+  .content {
+    h2 {
+      font-size: 2.5rem;
+      min-width: 20vw;
+      span {
+        color: #dea057;
+      }
+      @include Bmobile {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .video-flex {
+    @include flexer(row);
+    flex-wrap: wrap;
+    gap: 30px;
+    a {
+      text-decoration: none;
+      color: black;
+      @include flexer(column);
+      gap: 20px;
+      align-items: flex-start;
+      .image {
+        img {
+          min-width: 20vw;
+          height: 200px;
+          border-radius: 1px;
+          border-radius: 30px;
+          @include Smobile {
+            width: 300px;
+            object-fit: cover;
+          }
+        }
+      }
+
+      h4 {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+//  Reusable.jsx
+
+.similar {
+  width: 95vw;
+  margin: 50px auto;
+  @include flexer(column);
+  align-items: flex-start;
+  gap: 40px;
+  .content {
+    h2 {
+      font-size: 2.5rem;
+      span {
+        color: #dea057;
+      }
+      @include Bmobile {
+        font-size: 1.5rem;
+      }
+    }
+  }
+  .container {
+    @include flexer(row);
+    width: 98vw;
+    overflow: scroll;
+    scrollbar-width: none;
+    gap: 30px;
+    justify-content: flex-start;
+    scroll-snap-type: x mandatory;
+
+    .card {
+      width: 98vw;
+      scroll-snap-align: start;
+      scroll-behavior: smooth;
+      .image {
+        position: relative;
+        height: 430px;
+        img {
+          width: 300px;
+          min-height: 430px;
+          max-height: 430px;
+          border-radius: 40px;
+          padding: 10px;
+          padding-top: 40px;
+          background: #0000003a;
+
+          @include Fmobile {
+            width: 300px;
+          }
+        }
+        @include Fmobile {
+          margin-right: 10px;
+        }
+      }
+
+      .button {
+        @include flexer(row);
+        justify-content: space-between;
+        text-transform: capitalize;
+        width: 100%;
+        gap: 20px;
+        position: absolute;
+        background: #ff6464;
+        background: #040202f0;
+
+        
+        padding: 10px;
+        margin-bottom: 10px;
+        width: 90%;
+        border-radius: 40px;
+        left: 5%;
+        top: 13px;
+        @include Fmobile {
+          gap: 30px;
+        }
+        button {
+          border: none;
+          outline: none;
+          cursor: pointer;
+          color: rgb(255, 255, 255);
+          background: none;
+          background-image: linear-gradient( 135deg, #2AFADF 10%, #4C83FF 100%);
+          border-radius: 4px;
+          font-size: 0.8rem;
+          min-width: 80px;
+          padding: 10px 5px;
+          border-radius: 40px;
+          text-transform: capitalize;
+          @include Fmobile {
+            min-width: 70px;
+            padding: 6px 5px;
+            font-size: 0.8rem;
+          }
+        }
+        button:nth-child(2) {
+          background: none;
+          background-image: linear-gradient( 135deg, #2AFADF 10%, #4C83FF 100%);
+        }
+      }
+
+      h3 {
+        font-size: 1.3rem;
+        margin-left: 25px;
+        margin-top: 25px;
+        text-transform: capitalize;
+        @include Fmobile {
+          font-size: 1rem;
+          margin-top: 17px;
+        }
+      }
+    }
+  }
+}
